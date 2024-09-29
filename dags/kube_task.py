@@ -6,12 +6,12 @@ default_args = {
     'owner': 'airflow',
 }
 
-with DAG(
-    dag_id='kube_task',
+with DAG('kube_task',
     default_args=default_args,
     schedule_interval=None,
     start_date=days_ago(1),
-    tags=['kubernetes-task'],
+    tags=['kubernetes-task'], 
+    catchup=False
 ) as dag:
 
     kube_operator = KubernetesPodOperator(
@@ -23,3 +23,5 @@ with DAG(
         task_id="echo",
         get_logs=True
     )
+
+kube_operator
