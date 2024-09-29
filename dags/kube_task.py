@@ -24,4 +24,3 @@ with DAG(
         get_logs=True
     )
 
-kube_operator
