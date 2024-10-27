@@ -19,7 +19,7 @@ with DAG(
     @dag.task
     def list_files(**context):
         import os
-        data_dir = "/data"
+        data_dir = "/app/weather-data"
         csv_files = [f for f in os.listdir(data_dir) if f.endswith('.csv')]
         if csv_files:
             for csv_file in csv_files:
